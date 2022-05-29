@@ -7,15 +7,14 @@ lazy val root = project
     version                          := "0.1.0-SNAPSHOT",
     scalaVersion                     := scala3Version,
     libraryDependencies ++= Seq(
-      "com.pulumi"     % "aws"        % "(,6.0.0]",
-      "com.pulumi"     % "pulumi"     % "(,1.0]",
-      "com.pulumi"     % "aws-native" % "(,1.0]",
-      "org.scalameta" %% "munit"      % "0.7.29" % Test
+      "com.pulumi" % "aws"    % "(,6.0.0]",
+      "com.pulumi" % "pulumi" % "(,1.0]"
     ),
-    Compile / run / mainClass        := Some("com.twelvehart.Infrastructure"),
+    Compile / run / mainClass        := Some("org.twelvehart.Infrastructure"),
     assembly / assemblyJarName       := "infrastructure.jar",
     assembly / assemblyMergeStrategy := {
-      case PathList("META-INF", xs @ _*) => MergeStrategy.discard
-      case _                             => MergeStrategy.first
+      case PathList("com", "google", "rpc", xs @ _*)      => MergeStrategy.first
+      case PathList("META-INF", "versions", "9", xs @ _*) => MergeStrategy.first
+      case x                                              => MergeStrategy.defaultMergeStrategy(x)
     }
   )
