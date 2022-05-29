@@ -1,9 +1,32 @@
-## sbt project compiled with Scala 3
+## Pulumi Scala Demo
+
+### Prerequisties
+
+- JDK 11 or later
+- [Pulumi cli](https://www.pulumi.com/docs/get-started/install) installed
+- Pulumi account created
+- AWS account and credentials configured for use on the command line (see: [configuring aws](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html))
 
 ### Usage
 
-This is a normal sbt project. You can compile code with `sbt compile`, run it with `sbt run`, and `sbt console` will start a Scala 3 REPL.
+#### Assemble JAR
 
-For more information on the sbt-dotty plugin, see the
-[scala3-example-project](https://github.com/scala/scala3-example-project/blob/main/README.md).
-# quickstart
+```bash
+> sbt ";clean;assembly`
+```
+
+#### Pulumi Up
+
+From the root directory:
+
+```bash
+> pulumi up
+```
+
+It should run you through an account creation process, and download some plugins.
+
+#### Pulumi Destroy
+
+```bash
+> pulumi destroy
+```
