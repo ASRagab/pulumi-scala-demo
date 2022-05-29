@@ -1,4 +1,4 @@
-name: quickstart
+name: pulumi-scala-demo
 runtime:
   name: java
   options:

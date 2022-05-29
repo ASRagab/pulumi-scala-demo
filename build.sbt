@@ -3,7 +3,7 @@ val scala3Version = "3.1.2"
 lazy val root = project
   .in(file("."))
   .settings(
-    name                             := "quickstart",
+    name                             := "pulumi-scala-demo",
     version                          := "0.1.0-SNAPSHOT",
     scalaVersion                     := scala3Version,
     libraryDependencies ++= Seq(
